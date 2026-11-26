@@ -1,0 +1,11 @@
+{
+  "name": "codeduel-desktop",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "main": "main.mjs",
+  "scripts": {
+    "start": "node ../scripts/build.mjs --from-desktop && electron ."
+  },
+  "devDependencies": { "electron": "latest" }
+}

@@ -1,0 +1,54 @@
+{
+  "name": "code-duel",
+  "displayName": "CodeDuel",
+  "description": "Friendly coding duels, with your own editor and runtime.",
+  "version": "0.1.0",
+  "publisher": "codeduel",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Education"
+  ],
+  "main": "./extension.cjs",
+  "activationEvents": [
+    "onUri",
+    "workspaceContains:.codeduel.json"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": false
+    }
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "codeduel.run",
+        "title": "CodeDuel: Run tests"
+      },
+      {
+        "command": "codeduel.return",
+        "title": "CodeDuel: Return result to room"
+      },
+      {
+        "command": "codeduel.python",
+        "title": "CodeDuel: Set up Python environment"
+      }
+    ],
+    "configuration": {
+      "title": "CodeDuel",
+      "properties": {
+        "codeduel.nodePath": {
+          "type": "string",
+          "default": "node",
+          "description": "Path to the Node.js executable."
+        },
+        "codeduel.pythonPath": {
+          "type": "string",
+          "default": "python",
+          "description": "Path to Python used to create the challenge virtual environment."
+        }
+      }
+    }
+  }
+}

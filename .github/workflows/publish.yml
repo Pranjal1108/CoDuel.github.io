@@ -1,0 +1,55 @@
+name: Publish CodeDuel
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: codeduel-production
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.pages.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm run build && npm test
+      - name: Configure D1
+        env:
+          D1_ID: ${{ vars.CODEDUEL_D1_ID }}
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          const id = process.env.D1_ID;
+          if (!/^[0-9a-f-]{36}$/i.test(id)) throw Error('Set CODEDUEL_D1_ID to the CodeDuel database UUID.');
+          fs.writeFileSync('wrangler.json', JSON.stringify({name:'codeduel-api',main:'worker/cloudflare.mjs',compatibility_date:'2025-11-01',workers_dev:true,d1_databases:[{binding:'DB',database_name:'codeduel',database_id:id,migrations_dir:'drizzle'}]}));
+          JS
+      - name: Deploy room API
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          npx --yes wrangler@4 d1 migrations apply DB --remote
+          npx --yes wrangler@4 deploy
+      - name: Build Pages frontend
+        run: node scripts/build-pages.mjs
+        env:
+          CODEDUEL_API_ORIGIN: ${{ vars.CODEDUEL_API_ORIGIN }}
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/pages
+      - id: pages
+        uses: actions/deploy-pages@v4
+      - name: Verify live two-player room
+        env:
+          PAGE_URL: ${{ steps.pages.outputs.page_url }}
+        run: node scripts/check-room.mjs "$PAGE_URL"

@@ -1,0 +1,658 @@
+{
+  "arrays": {
+    "title": "Find the first duplicate",
+    "text": "Write solve(values). Return the first number whose second occurrence is encountered when scanning left to right. Return null if all numbers are unique. Integers may be negative or zero. Maximum length: 100,000.",
+    "signature": "function solve(values) {\n  // Your solution here\n}\n",
+    "example": "[4, 2, 4, 2] → 4",
+    "tests": [
+      {
+        "input": [
+          4,
+          2,
+          4,
+          2
+        ],
+        "expected": 4
+      },
+      {
+        "input": [],
+        "expected": null
+      },
+      {
+        "input": [
+          1,
+          2,
+          3
+        ],
+        "expected": null
+      },
+      {
+        "input": [
+          0,
+          0
+        ],
+        "expected": 0
+      },
+      {
+        "input": [
+          -1,
+          2,
+          -1
+        ],
+        "expected": -1
+      },
+      {
+        "input": [
+          1,
+          2,
+          2,
+          1
+        ],
+        "expected": 2
+      },
+      {
+        "input": [
+          7
+        ],
+        "expected": null
+      },
+      {
+        "input": [
+          5,
+          5,
+          5
+        ],
+        "expected": 5
+      }
+    ]
+  },
+  "strings": {
+    "title": "Anagram check",
+    "text": "Write solve([a, b]). Return true if both strings contain exactly the same letters with the same frequencies; otherwise false. Inputs contain only lowercase a–z and may be empty. Maximum combined length: 100,000.",
+    "signature": "function solve([a, b]) {\n  // Your solution here\n}\n",
+    "example": "[\"listen\", \"silent\"] → true",
+    "tests": [
+      {
+        "input": [
+          "listen",
+          "silent"
+        ],
+        "expected": true
+      },
+      {
+        "input": [
+          "a",
+          "b"
+        ],
+        "expected": false
+      },
+      {
+        "input": [
+          "",
+          ""
+        ],
+        "expected": true
+      },
+      {
+        "input": [
+          "aab",
+          "abb"
+        ],
+        "expected": false
+      },
+      {
+        "input": [
+          "abc",
+          "ab"
+        ],
+        "expected": false
+      },
+      {
+        "input": [
+          "aaaa",
+          "aaaa"
+        ],
+        "expected": true
+      },
+      {
+        "input": [
+          "abca",
+          "caba"
+        ],
+        "expected": true
+      },
+      {
+        "input": [
+          "x",
+          ""
+        ],
+        "expected": false
+      }
+    ]
+  },
+  "fastapi": {
+    "title": "Configuration, without surprises",
+    "text": "Write solve() with no arguments. Return a dictionary with app_name (str, default \"Duel API\"), port (int, default 8000), and debug (bool, default False). Read overrides from APP_NAME, PORT, and DEBUG using Pydantic Settings. Invalid PORT must raise a validation error.",
+    "signature": "# pydantic-settings is available\nfrom pydantic_settings import BaseSettings\n\n# Define your settings class here\n\ndef solve():\n    pass\n",
+    "example": "No environment overrides → {\"app_name\": \"Duel API\", \"port\": 8000, \"debug\": false}",
+    "tests": []
+  },
+  "py-basics": {
+    "title": "Variables & arithmetic",
+    "text": "Convert a Celsius temperature to Fahrenheit.",
+    "signature": "def solve(c):\n    pass\n",
+    "tests": [
+      {
+        "input": 0,
+        "expected": 32
+      },
+      {
+        "input": 100,
+        "expected": 212
+      },
+      {
+        "input": -40,
+        "expected": -40
+      },
+      {
+        "input": 10,
+        "expected": 50
+      },
+      {
+        "input": 20,
+        "expected": 68
+      },
+      {
+        "input": 30,
+        "expected": 86
+      },
+      {
+        "input": -10,
+        "expected": 14
+      },
+      {
+        "input": 5,
+        "expected": 41
+      }
+    ],
+    "example": "100 → 212"
+  },
+  "py-conditions": {
+    "title": "Conditionals",
+    "text": "Classify an integer as negative, zero, or positive.",
+    "signature": "def solve(n):\n    pass\n",
+    "tests": [
+      {
+        "input": -1,
+        "expected": "negative"
+      },
+      {
+        "input": 0,
+        "expected": "zero"
+      },
+      {
+        "input": 1,
+        "expected": "positive"
+      },
+      {
+        "input": 3,
+        "expected": "positive"
+      },
+      {
+        "input": -5,
+        "expected": "negative"
+      },
+      {
+        "input": 8,
+        "expected": "positive"
+      },
+      {
+        "input": 100,
+        "expected": "positive"
+      },
+      {
+        "input": -100,
+        "expected": "negative"
+      }
+    ],
+    "example": "0 → \"zero\""
+  },
+  "py-loops": {
+    "title": "Loops & lists",
+    "text": "Return the sum of even integers in a list.",
+    "signature": "def solve(values):\n    pass\n",
+    "tests": [
+      {
+        "input": [],
+        "expected": 0
+      },
+      {
+        "input": [
+          1
+        ],
+        "expected": 0
+      },
+      {
+        "input": [
+          0
+        ],
+        "expected": 0
+      },
+      {
+        "input": [
+          2
+        ],
+        "expected": 2
+      },
+      {
+        "input": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "expected": 6
+      },
+      {
+        "input": [
+          -4,
+          2
+        ],
+        "expected": -2
+      },
+      {
+        "input": [
+          3,
+          5
+        ],
+        "expected": 0
+      },
+      {
+        "input": [
+          2,
+          2,
+          2
+        ],
+        "expected": 6
+      }
+    ],
+    "example": "[1] → 0"
+  },
+  "py-maps": {
+    "title": "Dictionaries",
+    "text": "Return a dictionary counting each word in the input list. Words are case-sensitive.",
+    "signature": "def solve(words):\n    pass\n",
+    "tests": [
+      {
+        "input": [],
+        "expected": {}
+      },
+      {
+        "input": [
+          "a"
+        ],
+        "expected": {
+          "a": 1
+        }
+      },
+      {
+        "input": [
+          "a",
+          "a"
+        ],
+        "expected": {
+          "a": 2
+        }
+      },
+      {
+        "input": [
+          "a",
+          "A"
+        ],
+        "expected": {
+          "a": 1,
+          "A": 1
+        }
+      },
+      {
+        "input": [
+          "red",
+          "blue"
+        ],
+        "expected": {
+          "red": 1,
+          "blue": 1
+        }
+      },
+      {
+        "input": [
+          "",
+          ""
+        ],
+        "expected": {
+          "": 2
+        }
+      },
+      {
+        "input": [
+          "one",
+          "two",
+          "one"
+        ],
+        "expected": {
+          "one": 2,
+          "two": 1
+        }
+      },
+      {
+        "input": [
+          "3"
+        ],
+        "expected": {
+          "3": 1
+        }
+      }
+    ],
+    "example": "[\"a\"] → {\"a\":1}"
+  },
+  "py-sql": {
+    "title": "SQL & databases",
+    "text": "Using Python sqlite3, return the distinct input names in ascending binary order.",
+    "signature": "def solve(names):\n    pass\n",
+    "tests": [
+      {
+        "input": [],
+        "expected": []
+      },
+      {
+        "input": [
+          "b",
+          "a"
+        ],
+        "expected": [
+          "a",
+          "b"
+        ]
+      },
+      {
+        "input": [
+          "a",
+          "a"
+        ],
+        "expected": [
+          "a"
+        ]
+      },
+      {
+        "input": [
+          "Z",
+          "a"
+        ],
+        "expected": [
+          "Z",
+          "a"
+        ]
+      },
+      {
+        "input": [
+          "O'Brien"
+        ],
+        "expected": [
+          "O'Brien"
+        ]
+      },
+      {
+        "input": [
+          "",
+          "x"
+        ],
+        "expected": [
+          "",
+          "x"
+        ]
+      },
+      {
+        "input": [
+          "10",
+          "2"
+        ],
+        "expected": [
+          "10",
+          "2"
+        ]
+      },
+      {
+        "input": [
+          "b",
+          "b",
+          "A"
+        ],
+        "expected": [
+          "A",
+          "b"
+        ]
+      }
+    ],
+    "example": "[\"b\",\"a\"] → [\"a\",\"b\"]"
+  },
+  "py-intervals": {
+    "title": "Sorting & intervals",
+    "text": "Merge overlapping closed intervals and return them in ascending order. Touching endpoints overlap.",
+    "signature": "def solve(intervals):\n    pass\n",
+    "tests": [
+      {
+        "input": [],
+        "expected": []
+      },
+      {
+        "input": [
+          [
+            1,
+            2
+          ]
+        ],
+        "expected": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      {
+        "input": [
+          [
+            2,
+            4
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "expected": [
+          [
+            1,
+            4
+          ]
+        ]
+      },
+      {
+        "input": [
+          [
+            0,
+            8
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "expected": [
+          [
+            0,
+            8
+          ]
+        ]
+      },
+      {
+        "input": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "expected": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "input": [
+          [
+            1,
+            4
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            6,
+            9
+          ]
+        ],
+        "expected": [
+          [
+            1,
+            9
+          ]
+        ]
+      },
+      {
+        "input": [
+          [
+            -4,
+            -2
+          ],
+          [
+            -3,
+            0
+          ]
+        ],
+        "expected": [
+          [
+            -4,
+            0
+          ]
+        ]
+      },
+      {
+        "input": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "expected": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ],
+    "example": "[[1,2]] → [[1,2]]"
+  },
+  "py-graphs": {
+    "title": "Graphs & dependencies",
+    "text": "Given a dictionary mapping tasks to lists of prerequisites, return whether all tasks can finish. Every prerequisite is also a key. Support chains longer than the Python recursion limit.",
+    "signature": "def solve(graph):\n    pass\n",
+    "tests": [
+      {
+        "input": {},
+        "expected": true
+      },
+      {
+        "input": {
+          "a": []
+        },
+        "expected": true
+      },
+      {
+        "input": {
+          "a": [
+            "a"
+          ]
+        },
+        "expected": false
+      },
+      {
+        "input": {
+          "a": [
+            "b"
+          ],
+          "b": []
+        },
+        "expected": true
+      },
+      {
+        "input": {
+          "a": [
+            "b"
+          ],
+          "b": [
+            "a"
+          ]
+        },
+        "expected": false
+      },
+      {
+        "input": {
+          "a": [],
+          "b": []
+        },
+        "expected": true
+      },
+      {
+        "input": {
+          "a": [],
+          "b": [
+            "a"
+          ],
+          "c": [
+            "a",
+            "b"
+          ]
+        },
+        "expected": true
+      },
+      {
+        "input": {
+          "a": [],
+          "b": [
+            "c"
+          ],
+          "c": [
+            "b"
+          ]
+        },
+        "expected": false
+      }
+    ],
+    "example": "{\"a\":[]} → true"
+  }
+}
