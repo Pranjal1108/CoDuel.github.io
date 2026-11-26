@@ -6,7 +6,7 @@ import {createBridge} from './bridge.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 let origin=process.env.CODEDUEL_SERVER_URL || 'http://127.0.0.1:4317';
-const allowedOrigins=['http://127.0.0.1:4317','https://code-duel-pranjal.deadpools.chatgpt.site'];
+const allowedOrigins=['http://127.0.0.1:4317'];
 let win,backend,bridge,quitting=false;
 if(!app.requestSingleInstanceLock())app.quit();
 else {

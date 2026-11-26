@@ -33,7 +33,7 @@ After restarting CodeDuel, use **Open in VS Code** again and select the same par
 
 The default desktop server binds only to `127.0.0.1:4317`. It is for local development, not cross-computer matches. Use a separate browser profile at the same address as the second local player. The desktop app is single-instance.
 
-The existing shared Worker/D1 backend and `.openai/hosting.json` project ID are preserved. `CODEDUEL_SERVER_URL` can select the existing allowlisted hosted origin, but that requires deploying the updated interface and verifying hosted authentication/access first. Online friend duels and the hosted desktop sign-in flow are not verified or complete in this preview. No new Sites project has been created.
+For online hosting, the GitHub Pages workflow builds the frontend and deploys the room API to Cloudflare Workers with D1.
 
 ## Browser preview and verification
 

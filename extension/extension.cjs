@@ -1,7 +1,7 @@
 const vscode=require('vscode'),fs=require('node:fs/promises'),path=require('node:path'),os=require('node:os'),cp=require('node:child_process');
 const tasks=require('./tasks.json');
 const {bridgeRequest,validBridge}=require('./bridge-client.cjs');
-const allowedOrigin=o=>o==='https://pranjal1108.github.io/CodeDuel'||o==='https://code-duel-pranjal.deadpools.chatgpt.site'||/^http:\/\/127\.0\.0\.1:([1-9]\d{0,4})$/.test(o)&&Number(o.split(':').at(-1))<=65535;
+const allowedOrigin=o=>o==='https://pranjal1108.github.io/CodeDuel'||/^http:\/\/127\.0\.0\.1:([1-9]\d{0,4})$/.test(o)&&Number(o.split(':').at(-1))<=65535;
 function activate(context){
  const output=vscode.window.createOutputChannel('CodeDuel');context.subscriptions.push(output);
  let running=false;
